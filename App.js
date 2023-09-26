@@ -1,30 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, View} from 'react-native';
+import Home from './src/Home';
+import Jogo from './src/Jogo';
 
 export default function App() {
 
-  const [player1, setPlayer1] = useState("");
-  const [player2, setPlayer2] = useState("");
+  const [screen, setScreen] = useState("Home"); 
+  const [jogador1, setJogador1] = useState("");
+  const [jogador2, setJogador2] = useState("");
 
-  
-
-  const handleClick = (event) => {
-    alert("Click")
+  const setJogadores = (nome1, nome2) => {
+    setJogador1(nome1)
+    setJogador2(nome2)
   }
 
+  const changeScreen = (_screen) => {
+    setScreen(_screen)
+  }
+
+  const checkScreen = (_screen) => {
+      return _screen === screen
+  }
 
   return (
     <View style={styles.container}>
-
       <StatusBar style="auto" />
-
-      <Text>Nome player1: {player1}</Text>
-      <TextInput placeholder='player1' style={styles.input} onChangeText={setPlayer1}></TextInput>
-      <Text>Nome player2: {player2}</Text>
-      <TextInput placeholder='player2' style={styles.input} onChangeText={setPlayer2}></TextInput>
-
-      <Button title="Botao" onPress={handleClick}></Button>
+      {checkScreen("Home") && <Home mudarNomeJogadores={setJogadores} changeScreen = {changeScreen}/>}
+      {checkScreen("Jogo") && <Jogo changeScreen = {changeScreen} />}
+      
     </View>
   );
 }
