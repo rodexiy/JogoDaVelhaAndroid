@@ -2,31 +2,29 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
-export default function Home({mudarNomeJogadores, changeScreen}) {
 
-  const [jogador1, setJogador1] = useState("");
-  const [jogador2, setJogador2] = useState("");
+export default function Home({changeScreen, setJogoAtual}) {
 
-
-
-  const handleClick = (event) => {
-    if (mudarNomeJogadores) {
-        mudarNomeJogadores(jogador1, jogador2)
-        changeScreen("Jogo")
-    }
+  const handleJogoDaVelha = () => {
+    changeScreen("PedirNomeDois")
+    setJogoAtual("JogoDaVelha")
   }
 
+  const handleJogoDaForca = () => {
+    changeScreen("PedirPalavra")
+    setJogoAtual("JogoDaForca")
+  }
+
+  const handleJogoDaMemoria = () => {
+    changeScreen("JogoDaMemoria")
+    setJogoAtual("JogoDaMemoria")
+  }
 
   return (
-    <View style={styles.container}>
-
-      <Text>Nome jogador 1: {jogador1}</Text>
-      <TextInput placeholder='Insira o nome' style={styles.input} onChangeText={setJogador1}></TextInput>
-      <Text>Nome jogador 2: {jogador2}</Text>
-      <TextInput placeholder='Insira o nome' style={styles.input} onChangeText={setJogador2}></TextInput>
-
-
-      <Button title="Continuar" onPress={handleClick}></Button>
+    <View>
+        <Button title='Jogo da velha' onPress={handleJogoDaVelha}></Button>
+        <Button title='Jogo da forca' onPress={handleJogoDaForca}></Button>
+        <Button title='Jogo da memória' onPress={handleJogoDaMemoria}></Button>
     </View>
   );
 }
