@@ -37,8 +37,8 @@ export default function App() {
       {checkScreen("JogoDaVelha") && <JogoDaVelha changeScreen = {changeScreen} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2} jogoAtual={jogoAtual}/>}
       {checkScreen("PedirPalavra") && <PedirPalavra changeScreen = {changeScreen} palavra={palavra} setPalavra={setPalavra} jogoAtual={jogoAtual}/>}
       {checkScreen("JogoDaForca") && <JogoDaForca changeScreen = {changeScreen} palavra={palavra} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2} jogoAtual={jogoAtual}/>}
-      {checkScreen("PedirNomeDois") && <PedirNomeDois changeScreen = {changeScreen} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2} jogoAtual={jogoAtual}/>}
-      {checkScreen("JogoDaMemoria") && <JogoDaMemoria changeScreen = {changeScreen}/>}
+      {checkScreen("PedirNomeDois") && <PedirNomeDois changeScreen = {changeScreen} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2} jogoAtual={jogoAtual} setJogador1={setJogador1} setJogador2={setJogador2} />}
+      {checkScreen("JogoDaMemoria") && <JogoDaMemoria changeScreen = {changeScreen} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2}/>}
     </View>
   );
 }

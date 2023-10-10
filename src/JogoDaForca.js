@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, StyleSheet, Text, TouchableHighlight, Image } from "react-native";
+import { View, StyleSheet, Text, TouchableHighlight, Image, Button } from "react-native";
 
 export default function JogoDaForca({ changeScreen , palavra}) {
 
@@ -28,7 +28,16 @@ export default function JogoDaForca({ changeScreen , palavra}) {
   }
 
   useEffect(function () {
+
+    setimgRender(require(`/assets/JogoDaForca/${erros}.png`))
+
     setTimeout(function () {
+      if (erros == 6) {
+        alert("Perdeu")
+        changeScreen("Home")
+        return
+      }
+
       checkWin()
     }, 250)
 
@@ -45,11 +54,6 @@ export default function JogoDaForca({ changeScreen , palavra}) {
   const errou = () => {
     setErros(erros + 1)
 
-    setimgRender(require(`/assets/JogoDaForca/${erros}.png`))
-    if (erros == 6) {
-      alert("Perdeu")
-      changeScreen("Home")
-    }
   }
 
   const handleKeyboard = (letter) => {
@@ -148,6 +152,8 @@ export default function JogoDaForca({ changeScreen , palavra}) {
       <Image style={styles.forca} source={imgRender} />
       {renderWord()}
       {renderKeyBoard()}
+      <Button title='Voltar' onPress={() => changeScreen("PedirPalavra")}/>
+
     </View>
   )
 }

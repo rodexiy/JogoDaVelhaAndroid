@@ -2,103 +2,108 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 const cards = [
-    { id: 1, value: "🥶" },
-    { id: 2, value: "🥶" },
-    { id: 3, value: "😃" },
-    { id: 4, value: "😃" },
-    { id: 5, value: "😝" },
-    { id: 6, value: "😝" },
-    { id: 7, value: "😍" },
-    { id: 8, value: "😍" },
-    { id: 9, value: "🥵" },
-    { id: 10, value: "🥵" },
-    { id: 11, value: "😑" },
-    { id: 12, value: "😑" },
-    { id: 13, value: "😡" },
-    { id: 14, value: "😡" },
-    { id: 15, value: "🤢" },
-    { id: 16, value: "🤢" },
-    { id: 17, value: "🤡" },
-    { id: 18, value: "🤡" },
-    { id: 19, value: "👻" },
-    { id: 20, value: "👻" },
-    { id: 21, value: "☠️" },
-    { id: 22, value: "☠️" },
-    { id: 23, value: "👽" },
-    { id: 24, value: "👽" },
-    { id: 25, value: "🤯" },
-    { id: 26, value: "🤯" },
-    { id: 27, value: "🙄" },
-    { id: 28, value: "🙄" },
-    { id: 29, value: "😎" },
-    { id: 30, value: "😎" },
-    { id: 31, value: "🤓" },
-    { id: 32, value: "🤓" },
-    { id: 33, value: "🤟" },
-    { id: 34, value: "🤟" },
-    { id: 35, value: "👍" },
-    { id: 36, value: "👍" },
-    { id: 37, value: "🙃" },
-    { id: 38, value: "🙃" },
-    { id: 39, value: "🤩" },
-    { id: 40, value: "🤩" },
-    { id: 41, value: "🤪" },
-    { id: 42, value: "🤪" },
-    { id: 43, value: "🤬" },
-    { id: 44, value: "🤬" },
-    { id: 45, value: "🤮" },
-    { id: 46, value: "🤮" },
-    { id: 47, value: "🤥" },
-    { id: 48, value: "🤥" },
-    { id: 49, value: "🤫" },
-    { id: 50, value: "🤫" }
-
+    { id: 1, value: "A" },
+    { id: 2, value: "A" },
+    { id: 3, value: "B" },
+    { id: 4, value: "B" },
+    { id: 5, value: "C" },
+    { id: 6, value: "C" },
+    { id: 7, value: "D" },
+    { id: 8, value: "D" },
+    { id: 9, value: "E" },
+    { id: 10, value: "E" },
+    { id: 11, value: "F" },
+    { id: 12, value: "F" },
+    { id: 13, value: "G" },
+    { id: 14, value: "G" },
+    { id: 15, value: "H" },
+    { id: 16, value: "H" },
+    { id: 17, value: "I" },
+    { id: 18, value: "I" },
+    { id: 19, value: "J" },
+    { id: 20, value: "J" },
+    { id: 21, value: "K" },
+    { id: 22, value: "K" },
+    { id: 23, value: "L" },
+    { id: 24, value: "L" },
+    { id: 25, value: "M" },
+    { id: 26, value: "M" },
+    { id: 27, value: "N" },
+    { id: 28, value: "N" },
+    { id: 29, value: "O" },
+    { id: 30, value: "O" },
+    { id: 31, value: "P" },
+    { id: 32, value: "P" },
+    { id: 33, value: "Q" },
+    { id: 34, value: "Q" },
+    { id: 35, value: "R" },
+    { id: 36, value: "R" },
+    { id: 37, value: "S" },
+    { id: 38, value: "S" },
+    { id: 39, value: "T" },
+    { id: 40, value: "T" },
+    { id: 41, value: "U" },
+    { id: 42, value: "U" },
+    { id: 43, value: "V" },
+    { id: 44, value: "V" },
+    { id: 45, value: "W" },
+    { id: 46, value: "W" },
+    { id: 47, value: "X" },
+    { id: 48, value: "X" },
+    { id: 49, value: "Y" },
+    { id: 50, value: "Y" },
 ];
 
-const [currentPlayer, setCurrentPlayer] = useState(1)
-const [points1, setPoints1] = useState(0)
-const [points2, setPoints2] = useState(0)
 
-const givePoints = () => {
-    if (currentPlayer == 1) {
-        setPoints1(points1 + 1)
-    }else{
-        setPoints2(points2 + 1)
-    }
-}
 
-const player = () => {
-    if (currentPlayer == 1) {
-        setCurrentPlayer(2);
-    }else {
-        setCurrentPlayer(1);
-    }
-}
-
-const shuffleArray = (array) => {
-    const shuffledArray = [...array];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
+const embaralharArray = (array) => {
+    const arrayEmbaralhada = [...array];
+    for (let i = arrayEmbaralhada.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        [arrayEmbaralhada[i], arrayEmbaralhada[j]] = [arrayEmbaralhada[j], arrayEmbaralhada[i]];
     }
-    return shuffledArray;
+    return arrayEmbaralhada;
 };
 
-const JogoDaMemoria = ({ changeScreen }) => {
+const JogoDaMemoria = ({ changeScreen , nomeJogador1, nomeJogador2}) => {
     const [board, setBoard] = useState([]);
     const [flippedIndexes, setFlippedIndexes] = useState([]);
     const [matches, setMatches] = useState([]);
+    const [currentPlayer, setCurrentPlayer] = useState(1)
+    const [points1, setPoints1] = useState(0)
+    const [points2, setPoints2] = useState(0)
 
     useEffect(() => {
-        initializeBoard();
+        iniciarTabuleiro();
     }, []);
 
-    const initializeBoard = () => {
-        const shuffledCards = shuffleArray(cards);
-        setBoard(shuffledCards);
+    const iniciarTabuleiro = () => {
+        const embaralhadas = embaralharArray(cards);
+        setBoard(embaralhadas);
         setFlippedIndexes([]);
         setMatches([]);
     };
+
+    const givePoints = () => {
+        if (currentPlayer == 1) {
+            setPoints1(points1 + 1)
+        }else{
+            setPoints2(points2 + 1)
+        }
+    }
+
+    const getCurrentPlayerName = () => {
+        console.log(nomeJogador1, nomeJogador2)
+        return currentPlayer === 1 ? nomeJogador1 : nomeJogador2
+    }
+    
+    const changePlayer = () => {
+        if (currentPlayer == 1) {
+            setCurrentPlayer(2);
+        }else {
+            setCurrentPlayer(1);
+        }
+    }
 
     const handleCardPress = (index) => {
         if (flippedIndexes.length === 2 || flippedIndexes.includes(index)) {
@@ -114,16 +119,18 @@ const JogoDaMemoria = ({ changeScreen }) => {
                 setTimeout(() => {
                     setMatches([...matches, board[firstIndex].id, board[secondIndex].id]);
                     setFlippedIndexes([]);
+                    givePoints()
                 }, 1000);
             } else {
                 setTimeout(() => {
                     setFlippedIndexes([]);
+                    changePlayer()
                 }, 1000);
             }
         }
     };
 
-    const renderCard = (card, index) => {
+    const renderCards = (card, index) => {
         const isFlipped =
             flippedIndexes.includes(index) || matches.includes(card.id);
         const cardStyle = isFlipped ? styles.cardFlipped : styles.card;
@@ -140,10 +147,10 @@ const JogoDaMemoria = ({ changeScreen }) => {
         );
     };
 
-    const renderBoard = () => {
+    const renderTabuleiro = () => {
         return (
             <View style={styles.board}>
-                {board.map((card, index) => renderCard(card, index))}
+                {board.map((card, index) => renderCards(card, index))}
             </View>
         );
     };
@@ -151,13 +158,13 @@ const JogoDaMemoria = ({ changeScreen }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Jogo da Memória</Text>
-            {renderBoard()}
-            <TouchableOpacity style={styles.button} onPress={initializeBoard}>
-                <Text style={styles.buttonText}>Reiniciar Jogo</Text>
-            </TouchableOpacity>
+            <Text>Pontos {nomeJogador1}: {points1} </Text>
+            <Text>Pontos {nomeJogador2}: {points2} </Text>
+            <Text>Vez de: {getCurrentPlayerName()} </Text>
+            {renderTabuleiro()}
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => changeScreen("home")}
+                onPress={() => changeScreen("Home")}
             >
                 <Text style={styles.buttonText}>Voltar</Text>
             </TouchableOpacity>
@@ -201,7 +208,7 @@ const styles = StyleSheet.create({
     button: {
         marginTop: 20,
         padding: 10,
-        backgroundColor: "red",
+        backgroundColor: "black",
         borderRadius: 5,
     },
     buttonText: {

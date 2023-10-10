@@ -2,10 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
-export default function PedirNomeDois({mudarNomeJogadores, changeScreen, jogoAtual}) {
-
-  const [jogador1, setJogador1] = useState("");
-  const [jogador2, setJogador2] = useState("");
+export default function PedirNomeDois({nomeJogador1, nomeJogador2, changeScreen, jogoAtual, setJogador1, setJogador2}) {
 
 
 
@@ -19,16 +16,18 @@ export default function PedirNomeDois({mudarNomeJogadores, changeScreen, jogoAtu
   }
 
 
+
   return (
     <View style={styles.container}>
 
-      <Text>Nome jogador 1: {jogador1}</Text>
+      <Text>Nome jogador 1: {nomeJogador1}</Text>
       <TextInput placeholder='Insira o nome' style={styles.input} onChangeText={setJogador1}></TextInput>
-      <Text>Nome jogador 2: {jogador2}</Text>
+      <Text>Nome jogador 2: {nomeJogador2}</Text>
       <TextInput placeholder='Insira o nome' style={styles.input} onChangeText={setJogador2}></TextInput>
 
 
       <Button title="Continuar" onPress={handleClick}></Button>
+      <Button title='Voltar' onPress={() => changeScreen("Home")}/>
     </View>
   );
 }

@@ -21,6 +21,7 @@ export default function PedirPalavra({mudarNomeJogadores, changeScreen, jogoAtua
 
 
       <Button title="Continuar" onPress={handleClick}></Button>
+      <Button title='Voltar' onPress={() => changeScreen("Home")}/>
     </View>
   );
 }

@@ -16,7 +16,7 @@ export default function Home({changeScreen, setJogoAtual}) {
   }
 
   const handleJogoDaMemoria = () => {
-    changeScreen("JogoDaMemoria")
+    changeScreen("PedirNomeDois")
     setJogoAtual("JogoDaMemoria")
   }
 

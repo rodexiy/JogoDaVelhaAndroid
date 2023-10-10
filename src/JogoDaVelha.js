@@ -114,6 +114,12 @@ export default function JogoDaVelha({changeScreen, nomeJogador1, nomeJogador2}) 
         if (venceu) {
             jogadorVenceu("2")
         }
+
+        console.log(Jogadas1.length + Jogadas2.length)
+        if (Jogadas1.length + Jogadas2.length == 9) {
+            alert("Empate!")
+            changeScreen("Home")
+        }
     }
 
     const handleSelect = (id, set) => {
@@ -139,7 +145,7 @@ export default function JogoDaVelha({changeScreen, nomeJogador1, nomeJogador2}) 
 
     const handleClick = () => {
         if (changeScreen) {
-            changeScreen("Home")
+            changeScreen("PedirNomeDois")
         }
     }
 
