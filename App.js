@@ -7,6 +7,8 @@ import JogoDaVelha from './src/JogoDaVelha';
 import PedirNomeDois from './src/PedirNomeDois';
 import PedirPalavra from './src/PedirPalavra';
 import JogoDaMemoria from './src/JogoDaMemoria';
+import Lista from './src/Lista';
+
 
 export default function App() {
 
@@ -39,6 +41,7 @@ export default function App() {
       {checkScreen("JogoDaForca") && <JogoDaForca changeScreen = {changeScreen} palavra={palavra} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2} jogoAtual={jogoAtual}/>}
       {checkScreen("PedirNomeDois") && <PedirNomeDois changeScreen = {changeScreen} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2} jogoAtual={jogoAtual} setJogador1={setJogador1} setJogador2={setJogador2} />}
       {checkScreen("JogoDaMemoria") && <JogoDaMemoria changeScreen = {changeScreen} nomeJogador1 = {jogador1} nomeJogador2 = {jogador2}/>}
+      <Lista></Lista>
     </View>
   );
 }
